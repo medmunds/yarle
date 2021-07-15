@@ -2,7 +2,7 @@ import TurndownService from 'turndown';
 import { gfm } from 'joplin-turndown-plugin-gfm';
 import { YarleOptions } from './../YarleOptions';
 
-import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
+import { monospaceCodeBlockRule, newLineRule, codeBlockRule, imagesRule, spanRule, strikethroughRule, taskItemsRule, wikiStyleLinksRule } from './turndown-rules';
 
 /* istanbul ignore next */
 const turndownService = new TurndownService({
@@ -27,6 +27,10 @@ turndownService.addRule('images', imagesRule);
 export const getTurndownService = (yarleOptions: YarleOptions) => {
     if (yarleOptions.keepMDCharactersOfENNotes){
         turndownService.escape = ((str: string) => str);
+    }
+
+    if (yarleOptions.mdStrikethrough !== undefined) {
+        turndownService.addRule('strikethrough', strikethroughRule);
     }
 
     if (yarleOptions.monospaceIsCodeBlock)

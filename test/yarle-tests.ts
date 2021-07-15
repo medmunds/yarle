@@ -440,6 +440,31 @@ export const yarleTests: Array<YarleTest> = [
   },
 
   {
+    name: 'Note with strikethrough (default)',
+    options: {
+      enexSource: `.${testDataFolder}test-strikethrough.enex`,
+      outputDir: 'out',
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-strikethrough${path.sep}test - strikethrough.md`,
+
+    expectedOutputPath: `${dataFolder}test-strikethrough-default.md`,
+  },
+
+  {
+    name: 'Note with strikethrough (custom)',
+    options: {
+      enexSource: `.${testDataFolder}test-strikethrough.enex`,
+      outputDir: 'out',
+      mdStrikethrough: '~~', // E.g., Obsidian uses ~~, not ~
+      isMetadataNeeded: true,
+    },
+    testOutputPath: `notes${path.sep}test-strikethrough${path.sep}test - strikethrough.md`,
+
+    expectedOutputPath: `${dataFolder}test-strikethrough-custom.md`,
+  },
+
+  {
     name: 'Enex file urlEncode whitespace',
     options: {
       enexSource: `.${testDataFolder}test-urlencode.enex`,

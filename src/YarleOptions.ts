@@ -25,6 +25,7 @@ export interface YarleOptions {
     urlEncodeFileNamesAndLinks?: boolean;
     monospaceIsCodeBlock?: boolean;
     dateFormat?: string;
+    mdStrikethrough?: string;
     nestedTags?: TagSeparatorReplaceOptions;
     keepImageSize?: OutputFormat;
     keepOriginalAmountOfNewlines?: boolean;
